@@ -1,0 +1,29 @@
+{
+  "author": {
+    "name": "Mustafa Dokumacı",
+    "email": "mustafa@foraa.com",
+    "url": "http://mustafadokumaci.com"
+  },
+  "name": "ah-broadcaster-plugin",
+  "description": "action hero broadcaster plugin",
+  "version": "0.0.1",
+  "keywords": [
+    "action hero",
+    "broadcaster",
+    "plugin",
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mstdokumaci/ah-broadcaster-plugin"
+  },
+  "homepage": "https://github.com/mstdokumaci/ah-broadcaster-plugin.git",
+  "dependencies": {
+    "async": "latest"
+  },
+  "devDependencies": {
+  },
+  "scripts" : {
+    "postinstall": "scripts/postinstall.js"
+  },
+  "license": "MIT"
+}
