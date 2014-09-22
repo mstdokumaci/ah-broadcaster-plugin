@@ -30,3 +30,7 @@ You can broadcast any message to a channel using this method.
 ```js
 api.channel.broadcast('my_channel', {message: 'hello'});
 ```
+Try sending your message to channel "all" for boradcasting every client:
+```js
+api.channel.broadcast('all', {message: 'hello'});
+```

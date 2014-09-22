@@ -32,11 +32,9 @@ exports.channel = function (api, next) {
 		], next);
 	};
 
-	if (api.config.channel.all) {
-		api.connections.addCreateCallback(function (connection) {
-			api.channel.join(connection.id, 'all');
-		});
-	}
+	api.connections.addCreateCallback(function (connection) {
+		api.channel.join(connection.id, 'all');
+	});
 
 	next();
 };

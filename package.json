@@ -6,7 +6,7 @@
   },
   "name": "ah-broadcaster-plugin",
   "description": "action hero broadcaster plugin",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "keywords": [
     "action hero",
     "broadcaster",
@@ -21,9 +21,6 @@
     "async": "latest"
   },
   "devDependencies": {
-  },
-  "scripts" : {
-    "postinstall": "scripts/postinstall.js"
   },
   "license": "MIT"
 }
