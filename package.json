@@ -6,7 +6,7 @@
   },
   "name": "ah-broadcaster-plugin",
   "description": "action hero broadcaster plugin",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "keywords": [
     "action hero",
     "broadcaster",
@@ -14,9 +14,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/mstdokumaci/ah-broadcaster-plugin"
+    "url": "https://github.com/mstdokumaci/ah-broadcaster-plugin.git"
   },
-  "homepage": "https://github.com/mstdokumaci/ah-broadcaster-plugin.git",
+  "homepage": "https://github.com/mstdokumaci/ah-broadcaster-plugin",
   "dependencies": {
     "async": "latest"
   },

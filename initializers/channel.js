@@ -45,7 +45,7 @@ exports.channel = function (api, next) {
 				async.each(
 					list,
 					function (connection_id, cb) {
-						api.connections.apply(connection_id, 'sendMessage', [JSON.stringify(data)], cb);
+						api.connections.apply(connection_id, 'sendMessage', [data], cb);
 					},
 					cb
 				);
