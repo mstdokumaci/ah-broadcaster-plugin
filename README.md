@@ -25,7 +25,7 @@ You can remove any connection from a channel by id anytime you need.
 api.channel.leave(connection.id, 'my_channel');
 ```
 
-### api.channel.broadcast (channel id, callback)
+### api.channel.broadcast (channel id, data, callback)
 You can broadcast any message to a channel using this method.
 ```js
 api.channel.broadcast('my_channel', {message: 'hello'});
