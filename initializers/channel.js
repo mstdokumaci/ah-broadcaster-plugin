@@ -49,7 +49,7 @@ module.exports = {
 					async.each(
 						list,
 						function (connection_id, cb) {
-							api.connections.apply(connection_id, 'sendMessage', [data], cb);
+							api.connections.apply(connection_id, 'sendMessage', [data], function() {cb();});
 						},
 						cb
 					);
