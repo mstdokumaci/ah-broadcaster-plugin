@@ -68,7 +68,7 @@ module.exports = {
 		// Remove being destroyed connection from connection set of every channel
 		// Also drop channel set of being destroyed connection
 		api.connections.addDestroyCallback(function (connection) {
-			remove_connection(connection_id);
+			remove_connection(connection.id);
 		});
 
 		function remove_connection (connection_id) {
