@@ -49,7 +49,10 @@ module.exports = {
 					async.each(
 						list,
 						function (connection_id, cb) {
-							api.connections.apply(connection_id, 'sendMessage', [data], function() {cb();});
+							api.connections.apply(connection_id, 'sendMessage', [data], function(err) {
+								if (err.constructor === Error) remove_connection(connection_id);
+							});
+							cb();
 						},
 						cb
 					);
@@ -65,24 +68,27 @@ module.exports = {
 		// Remove being destroyed connection from connection set of every channel
 		// Also drop channel set of being destroyed connection
 		api.connections.addDestroyCallback(function (connection) {
+			remove_connection(connection_id);
+		});
+
+		function remove_connection (connection_id) {
 			async.waterfall([
 				function (cb) {
-					redis.smembers(connection_prefix + connection.id, cb);
+					redis.smembers(connection_prefix + connection_id, cb);
 				},
 				function (list, cb) {
 					async.each(
 						list,
 						function (channel_id, cb) {
-							redis.srem(channel_prefix + channel_id, connection.id, cb);
+							redis.srem(channel_prefix + channel_id, connection_id, cb);
 						},
 						cb
 					);
-				},
-				function (cb) {
-					redis.del(connection_prefix + connection.id, cb);
 				}
-			], next);
-		});
+			], function () {
+				redis.del(connection_prefix + connection_id);
+			});
+		}
 
 		next();
 	}
