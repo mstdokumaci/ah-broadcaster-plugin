@@ -60,15 +60,18 @@ module.exports = {
 			], next);
 		};
 
-		// Join every connection to a channel named 'all'
-		api.connections.addCreateCallback(function (connection) {
-			api.channel.join(connection.id, 'all');
-		});
-
-		// Remove being destroyed connection from connection set of every channel
-		// Also drop channel set of being destroyed connection
-		api.connections.addDestroyCallback(function (connection) {
-			remove_connection(connection.id);
+		api.connections.addMiddleware({
+			name: 'broadcaster',
+			priority: 1000,
+			// Join every connection to a channel named 'all'
+			create: function (connection) {
+				api.channel.join(connection.id, 'all');
+			},
+			// Remove being destroyed connection from connection set of every channel
+			// Also drop channel set of being destroyed connection
+			destroy: function (connection) {
+				remove_connection(connection.id);
+			}
 		});
 
 		function remove_connection (connection_id) {
