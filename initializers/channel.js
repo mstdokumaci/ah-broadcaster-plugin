@@ -19,9 +19,11 @@ module.exports = {
 			async.parallel([
 				function (cb) {
 					redis.sadd(channel_prefix + channel_id, connection_id, cb);
+					redis.expire(channel_prefix + channel_id, 18000);
 				},
 				function (cb) {
 					redis.sadd(connection_prefix + connection_id, channel_id, cb);
+					redis.expire(connection_prefix + connection_id, 18000);
 				}
 			], next);
 		};
