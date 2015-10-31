@@ -51,7 +51,7 @@ module.exports = {
 					async.each(
 						list,
 						function (connection_id, cb) {
-							api.connections.apply(connection_id, 'sendMessage', [data], function(conn) {
+							api.connections.apply(connection_id, 'sendMessage', data, function(conn) {
 								if (!conn.id) remove_connection(connection_id);
 							});
 							cb();
